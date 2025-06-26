@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>My GitHub Website</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <p>This is my first website hosted on GitHub Pages.</p>
-  </body>
+<head>
+  <title>Login</title>
+</head>
+<body>
+  <h1>Sign In</h1>
+  <form onsubmit="return login()">
+    <label>Username: <input type="text" id="user" /></label><br><br>
+    <label>Password: <input type="password" id="pass" /></label><br><br>
+    <button type="submit">Login</button>
+  </form>
+
+  <script>
+    function login() {
+      const u = document.getElementById("user").value;
+      const p = document.getElementById("pass").value;
+      if (u === "admin" && p === "password") {
+        window.location.href = "downloads.html";
+      } else {
+        alert("Incorrect username or password.");
+      }
+      return false;
+    }
+  </script>
+</body>
 </html>
