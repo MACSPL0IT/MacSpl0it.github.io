@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login</title>
+  <title>Encrypted Page</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </head>
 <body>
-  <h1>Sign In</h1>
-  <form onsubmit="return login()">
-    <label>Username: <input type="text" id="user" /></label><br><br>
-    <label>Password: <input type="password" id="pass" /></label><br><br>
-    <button type="submit">Login</button>
-  </form>
+  <h1>Secure Page</h1>
+  <input type="password" id="key" placeholder="Enter decryption key">
+  <button onclick="decrypt()">Unlock</button>
+
+  <pre id="output"></pre>
 
   <script>
-    function login() {
-      const u = document.getElementById("user").value;
-      const p = document.getElementById("pass").value;
-      if (u === "admin" && p === "password") {
-        window.location.href = "downloads.html";
-      } else {
-        alert("Incorrect username or password.");
+    const encryptedData = "U2FsdGVkX1+2A34yBpCbsMJrkjZL4rBdKrAp67MZHkg="; // <-- your encrypted string
+
+    function decrypt() {
+      const key = document.getElementById("key").value;
+      try {
+        const decrypted = CryptoJS.AES.decrypt(encryptedData, key);
+        const text = decrypted.toString(CryptoJS.enc.Utf8);
+        document.getElementById("output").textContent = text || "Wrong key.";
+      } catch (e) {
+        document.getElementById("output").textContent = "Error decrypting.";
       }
-      return false;
     }
   </script>
 </body>
 </html>
+
