@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Decrypt Encrypted Payload</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-</head>
+<head><title>Login</title></head>
 <body>
-
-<h2>Decrypt Encrypted Script</h2>
-
-<!-- Optional: Inputs to enter key and IV -->
-<label>Key (hex, 32 chars for 16 bytes):</label><br>
-<input type="text" id="key" value="0123456789abcdef0123456789abcdef" size="35"><br><br>
-
-<label>IV (hex, 32 chars for 16 bytes):</label><br>
-<input type="text" id="iv" value="000102030405060708090a0b0c0d0e0f" size="35"><br><br>
-
-<button onclick="decrypt()">Decrypt</button>
-
-<pre id="output" style="white-space: pre-wrap; border:1px solid #ccc; padding:10px; margin-top:10px;"></pre>
-
+<h2>Login</h2>
+<input id="user" placeholder="Username">
+<input id="pass" placeholder="Password" type="password">
+<button onclick="login()">Login</button>
 <script>
-  // Your encrypted ciphertext hex string
-  const ciphertextHex = "449881e9a28e17105f9a89004eae6169079d1a6a2f160a1a21cba19ee13abedb5e8416ee6ba4c91a51311e91820a577e5231dd24f7867e970bb69716ee8ae56ecf24984642e5acdc116934b2288834a934fed10ecd815e29e9cb1bf5dd7b4853cd686911aebb813c93fc0f6f8da4853b95745b8b8fa4cefe1a6cc999397d0f1355488306e7998dd2e683d11ae6ef4befb6c77d629ab03b01b95275f95cb26677a28ba6c0758053bc264b7471035a357dd57b9f4fffcd188ca7657dc83d7e23893029d0fd05afbd6e8d8d43dd6b131f524589d29ca6da6f2f240f22791b13c1c51037a5a7e712a9389640bc85317cd091a908a06bcbbd0bb3f317e88a409b1eecd9c4222fcfc3adae1db4272fdfa3ad675aeae153bcd86c69f89a7b3ed224d024bbface7c90afa799595aeb381961ec81060ccf0616adc57b263e7479fd6488143dd8fe226a6f0f19acbf1d53352e344cc0f973c2ad9cf315d83df293f6cc1944d9c427e622436cbbc0152dc0904b5c88cd9e4013adacf73efb4e2b155a4b9b8c4874b26cc2c1f1b164027318bbfb2b3154a27c68de0a4b93ee16105110f8be6f5d0d581486502ea778d077db9384952e5b182ca1c119a624766c46513ba995692e68c5c2780d1a781dc054c7e2437af5221356e421ee145e89131d5a0c7c8a07835d1bb2a471f85df33b3408ba6b4125c2a2a5bf180e566cd23e865507871798c7fe10b2fecb7f89f165f496c9cad185377cfcc8e127ce379f12ec0b7124924a8ce6ad85aefe16021a3e8f829d21a32b6509411f0977c6ca1e074c10ce469731afb6c988b189476fa6761c7c5b1fca6988c09685309dbca8525a46860b39316ccc9fd4d583e8646ee481d3c1f826e632705dce65294e417785b6939670751a65d8c3449e310287740784cc58516958fbe927afe4d
-
+  function login() {
+    const u = document.getElementById('user').value;
+    const p = document.getElementById('pass').value;
+    if(u === 'admin' && p === 'password') {
+      window.location.href = 'downloads.html';
+    } else {
+      alert('Incorrect credentials');
+    }
+  }
+</script>
+</body>
+</html>
